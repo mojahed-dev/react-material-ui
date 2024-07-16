@@ -4,7 +4,9 @@ import MuiAutoComplete from "./components/MuiAutoComplete";
 import MuiButtons from "./components/MuiButtons";
 import MuiCard from "./components/MuiCard";
 import MuiCheckbox from "./components/MuiCheckbox";
+import MuiImageList from "./components/MuiImageList";
 import MuiLayout from "./components/MuiLayout";
+import MuiNavbar from "./components/MuiNavbar";
 import MuiRadioButton from "./components/MuiRadioButton";
 import MuiRating from "./components/MuiRating";
 import MuiSelect from "./components/MuiSelect";
@@ -27,6 +29,8 @@ type ComponentType =
   | "layout"
   | "card"
   | "accordion"
+  | "imagelist"
+  | "navbar"
 
 const App: React.FC = () => {
   const [selectedComponent, setSelectedComponent] = useState<
@@ -63,6 +67,10 @@ const App: React.FC = () => {
         return <MuiCard />;
       case "accordion":
         return <MuiAccordion />;
+      case "imagelist":
+        return <MuiImageList />;
+      case "navbar":
+        return <MuiNavbar />;
       default:
         return null;
     }
@@ -106,6 +114,8 @@ const App: React.FC = () => {
         <MenuItem value="layout">Layout</MenuItem>
         <MenuItem value="card">Card</MenuItem>
         <MenuItem value="accordion">Accordion</MenuItem>
+        <MenuItem value="imagelist">ImageList</MenuItem>
+        <MenuItem value="navbar">Navbar</MenuItem>
       </TextField>
       <Box sx={{ mt: 3 }}>{renderComponent()}</Box>
       <Typography variant="h6" sx={{ mt: 4 }}>
